@@ -1,6 +1,4 @@
-# shopping
-
-Build E-Commerce Website in Laravel:
+# Build E-Commerce Website in Laravel:
 
 
 Creating Models,Controllers & Views
