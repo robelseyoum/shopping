@@ -16,4 +16,8 @@ Route::get('/', function () {
 });
 
 
-Route::get('products', ["uses"=>"ProductsController@index"]);
+Route::get('products', ["uses"=>"ProductsController@index", "as" => "allProducts"]);
+
+//{{ route('AddToCartProduct', ['id'=>$product->id]) }}
+
+Route::get('products/addToCart/{id}', ["uses"=>"ProductsController@addProductToCart", 'as'=>'AddToCartProduct']);
