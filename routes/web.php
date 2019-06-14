@@ -24,3 +24,8 @@ Route::get('products/addToCart/{id}', ["uses"=>"ProductsController@addProductToC
 
 //show cart items
 Route::get('cart', ["uses"=>"ProductsController@showCart", 'as'=>'cartproduts']);
+
+
+
+//deleting items from cart 
+Route::get('products/deleteItemFromCart/{id}', ["uses"=>"ProductsController@deleteItemFromCart", 'as'=>'DeleteItemFromCart']);

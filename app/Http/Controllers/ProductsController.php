@@ -35,6 +35,11 @@ class ProductsController extends Controller
     //$request allows to access the session when we store morethan one elements
     public function addProductToCart(Request $request, $id)
     {    
+
+        //remove items from the cart
+        // $request->session()->forget("cart");
+        // $request->session()->flush();
+
          //call the session with id    
          $prevCart = $request->session()->get('cart');
          $cart = new Cart($prevCart);
@@ -68,6 +73,26 @@ class ProductsController extends Controller
             //echo "The Cart is empty";
             return redirect()->route("allProducts");
         }
+    }
+
+    public function deleteItemFromCart(Request $request, $id)
+    {
+        $cart = $request->session()->get("cart");
+
+        if(array_key_exists($id, $cart->items))
+        {
+            unset($cart->items[$id]);
+        }
+
+        $prevCart = $request->session()->get('cart');
+        $updatedCart = new Cart($prevCart);
+        $updatedCart->updatePriceAndQuantity();
+
+        //update the session
+        $request->session()->put('cart', $updatedCart);
+
+        //redirect to cart page
+        return redirect()->route("cartproduts");
     }
 
 

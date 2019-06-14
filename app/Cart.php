@@ -39,17 +39,33 @@ class Cart
             //data = will hold the attributes of the product from the db
             $productToAdd = $this->items[$id];
             $productToAdd['quantity']++;
+            $productToAdd['totalSinglePrice'] = $productToAdd['quantity'] * $price;
 
         }//first time the product added into the cart
         else
         {
-            $productToAdd = ['quantity' =>1, 'price' => $price, 'data' =>$product];
+            $productToAdd = ['quantity' =>1, 'totalSinglePrice' => $price, 'data' =>$product];
         }
 
         //here we update the arrays with thier specific values
         $this->items[$id] = $productToAdd;
         $this->totalQuantity++;
         $this->totalPrice = $this->totalPrice + $price;
+    }
+
+
+    public function updatePriceAndQuantity()
+    {
+        $totalPrice = 0;
+        $totalQuantity = 0;
+
+        foreach ($this->items as $item) {
+            $totalQuantity = $totalQuantity + $item['quantity'];
+            $totalPrice = $totalPrice + $item['totalSinglePrice'];
+        }
+
+        $this->totalQuantity = $totalQuantity;
+        $this->totalPrice = $totalPrice;
     }
 
 }
