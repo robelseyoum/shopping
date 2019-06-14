@@ -53,7 +53,22 @@ class ProductsController extends Controller
 
 
 
+    public function showCart()
+    {
+        $cart = Session::get('cart');
 
+        //cart is not empty
+        if($cart)
+        {
+            //dump($cart);
+            return view('cartproduts', ['cartItems' => $cart]);
+        }// cart is empty
+        else
+        {
+            //echo "The Cart is empty";
+            return redirect()->route("allProducts");
+        }
+    }
 
 
 
