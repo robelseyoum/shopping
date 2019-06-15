@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use View;
+use Auth;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -24,5 +26,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         //
+        view()->share('Name', "Rick");
+        view()->composer('*', function($view) {
+            $view->with('userData', Auth::user());
+        });
     }
 }

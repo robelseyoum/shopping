@@ -29,3 +29,14 @@ Route::get('cart', ["uses"=>"ProductsController@showCart", 'as'=>'cartproduts'])
 
 //deleting items from cart 
 Route::get('products/deleteItemFromCart/{id}', ["uses"=>"ProductsController@deleteItemFromCart", 'as'=>'DeleteItemFromCart']);
+
+
+//user Authentication
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+//Amin Panel
+Route::get('admin/products', ["uses"=>"Admin\AdminProductsController@index", "as" => "adminDisplayProducts"]);
+
