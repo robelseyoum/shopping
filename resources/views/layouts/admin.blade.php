@@ -14,13 +14,16 @@
 
     <!-- Custom styles for this template -->
     <link href="{{asset ('css/dashboard.css') }}" rel="stylesheet">
-s
+
 </head>
 
 <body>
 
-<nav class="navbar navbar-inverse navbar-fixed-top">
+<nav class="navbar navbar-inverse navbar-fixed-top bg-light">
+
+    <!-- Use .container-fluid for a full width container, spanning the entire width of your viewport. -->
     <div class="container-fluid">
+
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                 <span class="sr-only">Toggle navigation</span>
@@ -30,6 +33,7 @@ s
             </button>
             <a class="navbar-brand" href="#">Admin Panel</a>
         </div>
+
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 
@@ -40,13 +44,43 @@ s
                 <li><a href="#">Profile</a></li>
                 <li><a href="#">Help</a></li>
             </ul>
-
         </div>
+
     </div>
+
 </nav>
 
+<!--  
+<nav class="navbar navbar-expand-sm navbar-light navbar-expand-lg navbar-expand-xl bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Admin Panel</a>
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a href="#" class="nav-link">Home</a>
+            </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link">Dashboard</a>
+            </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link">Settings</a>
+            </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link">Profile</a>
+            </li>
+               <li class="nav-item">
+                <a href="#" class="nav-link">Help</a>
+            </li>
+        </ul> 
+
+    </div>
+    
+</nav>
+-->
+
+<!-- Use .container-fluid for a full width container, spanning the entire width of your viewport. -->
 <div class="container-fluid">
     <div class="row">
+
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
                <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
@@ -58,20 +92,16 @@ s
                 <li><a href="#">Users</a></li>
                 <li><a href="#">Analytics</a></li>
             </ul>
-            <ul class="nav nav-sidebar">
 
-            </ul>
-            <ul class="nav nav-sidebar">
 
-            </ul>
         </div>
+
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h1 class="page-header">Dashboard</h1>
 
-
             @yield('body')
-
         </div>
+        
     </div>
 </div>
 

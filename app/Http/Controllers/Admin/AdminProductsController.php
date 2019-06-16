@@ -19,4 +19,24 @@ class AdminProductsController extends Controller
         return view("admin.displayProducts", ["products"=>$products]);
     }
 
+   //display edit product data
+   public function editProductForm($id)
+   {
+
+        //fetch a single product data from the db with id
+        $product = Product::find($id);
+
+        return view("admin.editProductForm", ["product"=>$product]);
+
+   }
+
+   //display edit product image
+   public function editProductImageForm($id)
+   {
+        //fetch a single product data from the db with id
+         $product = Product::find($id);
+
+        return view("admin.editProductImageForm", ["product"=>$product]);
+   }
+
 }

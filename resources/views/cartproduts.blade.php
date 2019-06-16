@@ -12,9 +12,7 @@
             <div class="table-responsive cart_info">
                 <table class="table table-condensed">
 
-                    <!-- here we can display the user details among all the views -->
-                   <!-- <h3> {{ $userData->name }} 
-                   <span>{{ $userData->email }}</h3></span> --> 
+
                     <thead>
                         <tr class="cart_menu">
                             <td class="image">Item</td>
