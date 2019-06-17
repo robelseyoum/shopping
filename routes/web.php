@@ -57,13 +57,30 @@ Route::post('admin/updateProductImage/{id}', ["uses"=>"Admin\AdminProductsContro
 Route::post('admin/updateProduct/{id}', ["uses"=>"Admin\AdminProductsController@updateProduct", "as" => "adminUpdateProduct"]);
 
 
+//create a new product form url route
+Route::get('admin/createProductForm', ["uses"=>"Admin\AdminProductsController@createProductForm", "as" => "adminCreateProductForm"]);
+
+
+// using POST request send the data to database
+Route::post('admin/sendCreateProductForm', ["uses"=>"Admin\AdminProductsController@sendCreateProductForm", "as" => "adminSendCreateProductForm"]);
+
+
+//delete a product form the db and the web
+Route::get('admin/deleteProduct/{id}', ["uses"=>"Admin\AdminProductsController@deleteProduct", "as" => "adminDeleteProduct"]);
 
 
 
+//storage usage to get images, it is depends on a different ways
+Route::get('/testStorage', function(){
+    /*
+        return "<img src=".Storage::url('product_images/'.$product->image).">";
 
+        return Storage::disk('local')->url('product_images/'.$product->image);
 
-
-
+        Storage::disk('local')->exists("public/product_images/".$product['image']);
+        Storage::delete("public/product_images/".$product->image);
+    */
+});
 
 
 

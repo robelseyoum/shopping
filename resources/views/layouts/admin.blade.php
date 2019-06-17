@@ -37,7 +37,7 @@
             <ul class="nav navbar-nav navbar-right">
                 
                 <li><a href="#">Home</a></li>
-                <li><a href="#">Dashboard</a></li>
+                <li><a href="/admin/products">Dashboard</a></li>
 
                 <li><a href="#">Settings</a></li>
                 <li><a href="#">Profile</a></li>
@@ -82,9 +82,9 @@
 
         <div class="col-sm-3 col-md-2 sidebar">
             <ul class="nav nav-sidebar">
-               <li class="active"><a href="#">Overview <span class="sr-only">(current)</span></a></li>
+               <li class="active"><a href="/admin/index">Overview <span class="sr-only">(current)</span></a></li>
           
-                <li><a href="#">Insert</a></li>
+                <li><a href="/admin/createProductForm">Insert</a></li>
                 <li><a href="#">Orders</a></li>
 
                  <li><a href="#">Edit</a></li>

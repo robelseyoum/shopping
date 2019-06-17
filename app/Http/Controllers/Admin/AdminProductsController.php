@@ -94,20 +94,77 @@ class AdminProductsController extends Controller
         $description = $request->input('description');
         $type = $request->input('type');
         $price = $request->input('price');
+        
+        //Replace the characters "world" in the string "Hello world!" with "Peter":
+        //str_replace("world","Peter","Hello world!");
+        
+        $parseDollarSign = (Int) str_replace("$", " ", $request->input('price'));
 
-        $updateArray = array('name'=>$name, 'description'=>$description, 'type'=>$type, 'price'=>$price);
+        $updateArray = array('name'=>$name, 'description'=>$description, 'type'=>$type, 'price'=>$parseDollarSign);
         DB::table('products')->where('id', $id)->update($updateArray);
 
         return redirect()->route('adminDisplayProducts');
 
    }
 
+   //create new product 
+    public function createProductForm()
+    {
+        return view("admin.createProductForm");
+    }
 
+    // create new data to store the to the file
+    public function sendCreateProductForm(Request $request)
+    {
+        $name = $request->input('name');
+        $description = $request->input('description');
+        $type = $request->input('type');
+        $price = $request->input('price');
 
+        Validator::make($request->all(), ['image'=>"required|file|image|mimes:jpg,png,jpeg|max:5000"])->validate();
 
+        //upload the image
+        //parsing the image file extenstion
+        $imageExt = $request->file('image')->getClientOriginalExtension(); //jpg, png, gif...
+        $stringImageReFormat = str_replace(" ", "", $request->input('name'));
 
+        $imageName = $stringImageReFormat.".".$imageExt; //blackdress.jpg
+        $imageEncoded = File::get($request->image);
 
+        Storage::disk('local')->put("public/product_images/".$imageName, $imageEncoded);
 
+        $newUpdateArray = array('name'=>$name, 'description'=>$description, 'image'=>$imageName, 'type'=>$type, 'price'=>$price);
+        
+        $created = DB::table('products')->insert($newUpdateArray);
+
+        if($created)
+        {
+            return redirect()->route('adminDisplayProducts');
+        }
+        else
+        {
+            return "Product was not Created";
+        }
+
+    }
+
+    //delete a product from the db and the web
+    public function deleteProduct($id)
+    {
+        $product = Product::find($id);
+        $exists = Storage::disk('local')->exists("public/product_images/".$product['image']); //return either true or false
+
+        //delete old images
+        if($exists)
+        {
+            Storage::delete("public/product_images/".$product->image);
+        } 
+
+        Product::destroy($id);
+
+        return redirect()->route('adminDisplayProducts');
+
+    }
 
 
 
