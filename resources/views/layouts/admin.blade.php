@@ -16,7 +16,6 @@
     <link href="{{asset ('css/dashboard.css') }}" rel="stylesheet">
 
 </head>
-
 <body>
 
 <nav class="navbar navbar-inverse navbar-fixed-top bg-light">

@@ -1,0 +1,40 @@
+
+COMPELETED
+
+How To Install Laravel
+How To Create A Complete Project/Website In Laravel
+How To Create E-Commerce Website In Laravel
+Learn Everything About Routes
+Learn How To Use PHP Artisan Commands
+Learn How To Create Models & Controllers
+Learn How To Create Views Using Blade
+Connect Website To Database & Create Tables
+Get Products From Database & Display Them For Customers
+Add Bootstrap To Your Project
+Learn About Blade & How To Use Its Most Important Features
+Create Cart & Display Prices & Quantities
+Redirect Users To Specific Pages
+Delete Items From Cart
+Make User Authentication Using Laravel Auth
+Share Data With All Views
+Create Admin Dashboard To Control All Products
+Upload & Update Product Image
+
+
+
+TO DO LIST 
+
+Update Product Fields
+Create New Products Using Admin Dashboard
+Delete Product From Database Using Admin Dashboard
+Restrict Access To Admins Only
+Add Pagination To Your Website
+Categorize Your Products & Use Query Builder
+Categorize your products according to gender
+Add Search Feature So That Customers Search For Specific Product
+Increase & decrease number of items in cart
+Create a Robust Checkout System
+Add Payment Gateway Page
+Integrating Paypal with your e-commerce store
+Multi Admin levels
+Send Emails From Your E-commerce website

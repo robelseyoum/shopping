@@ -4,7 +4,7 @@
 
 <div class="table-responsive">
 
-    <form action="/admin/update/{{$product->id}}" method="post">
+    <form action="/admin/updateProduct/{{$product->id}}" method="post">
 
         {{csrf_field()}}
 
@@ -28,7 +28,9 @@
             <label for="type">Price</label>
             <input type="text" class="form-control" name="price" id="price" placeholder="price" value="{{$product->price}}" required>
         </div>
+
         <button type="submit" name="submit" class="btn btn-default">Submit</button>
+
     </form>
 
 </div>

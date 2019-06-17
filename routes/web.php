@@ -37,7 +37,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-//Amin Panel
+//Admin Panel
 Route::get('admin/products', ["uses"=>"Admin\AdminProductsController@index", "as" => "adminDisplayProducts"]);
 
 
@@ -48,13 +48,13 @@ Route::get('admin/editProductForm/{id}', ["uses"=>"Admin\AdminProductsController
 //display edit product image form
 Route::get('admin/editProductImageForm/{id}', ["uses"=>"Admin\AdminProductsController@editProductImageForm", "as" => "adminEditProductImageForm"]);
 
+//POST REQUEST
+//update product image make sure use POST request// copy past code will lead to make this type of mistake
+Route::post('admin/updateProductImage/{id}', ["uses"=>"Admin\AdminProductsController@updateProductImage", "as" => "adminUpdateProductImage"]);
 
 
-
-
-
-
-
+//update edit product form with POST request
+Route::post('admin/updateProduct/{id}', ["uses"=>"Admin\AdminProductsController@updateProduct", "as" => "adminUpdateProduct"]);
 
 
 
